@@ -1,0 +1,7 @@
+1. download hts json
+2. convert it to heirachical
+3. replace all - to space in the json 
+4. remove brackets from json
+5. remove : from json
+6. fix the resembling properties
+7. train the json
