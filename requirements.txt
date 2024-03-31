@@ -4,3 +4,4 @@ nltk
 numpy
 wn
 transformers
+sentence-transformers
