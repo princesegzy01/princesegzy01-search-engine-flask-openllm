@@ -1,5 +1,5 @@
 flask
-spacy~=3.3.3
+spacy
 nltk
 numpy
 wn
