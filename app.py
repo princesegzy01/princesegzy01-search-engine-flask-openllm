@@ -3,6 +3,7 @@ from training import prediction
 from training import llm
 from training import ollama
 from flask import jsonify,request, make_response
+import timeit
 
 app = Flask(__name__)
  
@@ -26,7 +27,9 @@ def predict():
     #    response = llm.fetchLLM(original_query)
        response = ollama.fetchLLM(original_query)
        print(response)
-       return jsonify({"data" : response})
+
+       start = timeit.default_timer()
+       return jsonify({"data" : response, "timer" : timeit.default_timer() - start})
     else:
        print("direct prediction")
        return prediction.predict(query, path)

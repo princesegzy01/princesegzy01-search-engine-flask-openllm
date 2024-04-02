@@ -5,6 +5,8 @@ import sys
 import os
 from flask import json
 from flask import jsonify,request, make_response
+import timeit
+from sentence_transformers import SentenceTransformer, util
 
 
 f = open('training/result.json')
@@ -13,14 +15,13 @@ BASE_MODEL_PATH="training/models"
 data = json.load(f)
 THRESHOLD_SCORE = 0.2
 
-
-
 import os
 print(os.path.abspath("."))
 
+start = timeit.default_timer()
+
 trigger_word_list = {'Other', 'greater', 'cm', 'inches', 'diameter', 'measuring', 'less', 'minimum', 'Weighing', 'Other:'}
 
-from sentence_transformers import SentenceTransformer, util
 
 model = SentenceTransformer("multi-qa-MiniLM-L6-cos-v1")
 
@@ -54,7 +55,8 @@ def predict(query, path):
                     "score" : "0.0"
                 },
                 "type" : 'response',
-                    "path" : path
+                "path" : path,
+                "timer" : timeit.default_timer() - start
                 }
 
                 return response_data
@@ -105,7 +107,8 @@ def predict(query, path):
                 'q' : query,
                 "data" : _response_data,
                 "type" : 'request',
-                "path" : path
+                "path" : path,
+                "timer" : timeit.default_timer() - start
             }
 
         return response_data
@@ -153,7 +156,8 @@ def predict(query, path):
                     "score" : str(current_data['score'])
                 },
                 "type" : 'response',
-                "path" : new_path
+                "path" : new_path,
+                "timer" : timeit.default_timer() - start
             }
 
         return response_data
