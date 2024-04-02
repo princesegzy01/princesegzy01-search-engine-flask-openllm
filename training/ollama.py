@@ -70,6 +70,8 @@ def fetchLLM(query):
 
 
     response = response['response']
+
+    print(response)
     # sys.exit(0)
     word_list = []        
 
