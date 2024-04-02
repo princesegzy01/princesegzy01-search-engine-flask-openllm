@@ -40,7 +40,7 @@ def fetchLLM(query):
 
     data = { 
        "model": "llama2", 
-        "prompt": "What is " + query, 
+        "prompt": "describe " + query  + " in english language", 
         "stream": False 
     }
     json_data = json.dumps(data)
