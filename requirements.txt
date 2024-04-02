@@ -5,3 +5,4 @@ numpy
 wn
 transformers
 sentence-transformers
+accelerate

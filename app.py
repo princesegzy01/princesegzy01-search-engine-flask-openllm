@@ -1,6 +1,7 @@
 from flask import Flask
 from training import prediction
 from training import llm
+from training import ollama
 from flask import jsonify,request, make_response
 
 app = Flask(__name__)
@@ -22,7 +23,8 @@ def predict():
     if(path == "0" and helper =="yes"):
        print(">>>>> fetchLLM")
 
-       response = llm.fetchLLM(original_query)
+    #    response = llm.fetchLLM(original_query)
+       response = ollama.fetchLLM(original_query)
        print(response)
        return jsonify({"data" : response})
     else:
