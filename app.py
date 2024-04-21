@@ -29,7 +29,7 @@ def predict():
       # use AI
       if(response['type'] == "empty_base"):
          # use AI
-         response = llm.fetchLLM(original_query)
+         # response = llm.fetchLLM(original_query)
          response = ollama.fetchLLM(query)
 
          response_list = [k for k, v in response.items()]
