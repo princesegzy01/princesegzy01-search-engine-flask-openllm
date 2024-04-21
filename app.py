@@ -20,9 +20,8 @@ def predict():
     query = content['q']
     original_query = content['original_query']
     path = content['path']
-    helper = content['helper']
-
-    if(path == "0" and helper =="yes"):
+    
+    if(path == "0"):
       print(">>>>> fetchLLM")
 
     #    response = llm.fetchLLM(original_query)
