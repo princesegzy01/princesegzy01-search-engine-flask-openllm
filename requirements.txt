@@ -7,3 +7,4 @@ transformers
 sentence-transformers
 accelerate
 spacy-universal-sentence-encoder
+matplotlib
