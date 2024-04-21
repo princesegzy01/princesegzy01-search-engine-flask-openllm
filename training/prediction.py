@@ -13,7 +13,7 @@ f = open('training/result.json')
 BASE_MODEL_PATH="training/models"
 
 data = json.load(f)
-THRESHOLD_SCORE = 0.4
+THRESHOLD_SCORE = 0.5
 
 import os
 print(os.path.abspath("."))
