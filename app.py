@@ -2,6 +2,7 @@ from flask import Flask
 from training import prediction
 from training import llm
 from training import ollama
+from training import cluster
 from flask import jsonify,request, make_response
 import timeit
 
@@ -22,14 +23,18 @@ def predict():
     helper = content['helper']
 
     if(path == "0" and helper =="yes"):
-       print(">>>>> fetchLLM")
+      print(">>>>> fetchLLM")
 
     #    response = llm.fetchLLM(original_query)
-       response = ollama.fetchLLM(original_query)
-       print(response)
+      response = ollama.fetchLLM(original_query)
+      print(response)
 
-       start = timeit.default_timer()
-       return jsonify({"data" : response, "timer" : timeit.default_timer() - start})
+      response_list = [k for k, v in response.items()]
+      # pass response from lamma2 in array of string
+      processed_query = cluster.processCluster(response_list)
+
+      start = timeit.default_timer()
+      return jsonify({"data" : response, "processed_query" : processed_query, "timer" : timeit.default_timer() - start})
     else:
        print("direct prediction")
        return prediction.predict(query, path)

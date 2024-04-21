@@ -44,6 +44,7 @@ def fetchLLM(query):
     word_list = []
 
     for sentence in data:
+        
 
         tokens = preprocessText(sentence['generated_text'])
         tags = nlp(tokens)

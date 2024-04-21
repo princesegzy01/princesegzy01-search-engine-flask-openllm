@@ -6,3 +6,4 @@ wn
 transformers
 sentence-transformers
 accelerate
+spacy-universal-sentence-encoder
