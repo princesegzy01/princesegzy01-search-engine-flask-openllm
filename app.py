@@ -30,7 +30,7 @@ def predict():
       # pass response from lamma2 in array of string
       # processed_query = cluster.processCluster(response_list, query)
 
-      return prediction.predict(processed_query, path)
+      return prediction.predict(query, path)
 
       # start = timeit.default_timer()
       # return jsonify({"data" : response, "processed_query" : processed_query, "timer" : timeit.default_timer() - start})
