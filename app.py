@@ -18,19 +18,18 @@ def predict():
     print(content)
 
     query = content['q']
-    original_query = content['original_query']
     path = content['path']
     
     if(path == "0"):
       print(">>>>> fetchLLM")
 
     #    response = llm.fetchLLM(original_query)
-      response = ollama.fetchLLM(original_query)
+      response = ollama.fetchLLM(query)
       print(response)
 
       response_list = [k for k, v in response.items()]
       # pass response from lamma2 in array of string
-      processed_query = cluster.processCluster(response_list, original_query)
+      processed_query = cluster.processCluster(response_list, query)
 
       return prediction.predict(processed_query, path)
 
