@@ -12,7 +12,7 @@ import spacy_universal_sentence_encoder
 
 
 
-def processCluster(ws):
+def processCluster(ws, query):
 
     modelx = SentenceTransformer("multi-qa-MiniLM-L6-cos-v1")
     
@@ -179,7 +179,7 @@ def processCluster(ws):
     #     v[value].append(key)
 
 
-    doc_1 = nlp_sentence_encoder('playstation')
+    doc_1 = nlp_sentence_encoder(query)
 
     word_smilarity = {}
 

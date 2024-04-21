@@ -30,7 +30,7 @@ def predict():
 
       response_list = [k for k, v in response.items()]
       # pass response from lamma2 in array of string
-      processed_query = cluster.processCluster(response_list)
+      processed_query = cluster.processCluster(response_list, original_query)
 
       return prediction.predict(processed_query, path)
 
