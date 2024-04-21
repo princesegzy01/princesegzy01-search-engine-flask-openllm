@@ -24,12 +24,11 @@ def predict():
       print(">>>>> fetchLLM")
 
     #    response = llm.fetchLLM(original_query)
-      response = ollama.fetchLLM(query)
-      print(response)
+      # response = ollama.fetchLLM(query)
 
-      response_list = [k for k, v in response.items()]
+      # response_list = [k for k, v in response.items()]
       # pass response from lamma2 in array of string
-      processed_query = cluster.processCluster(response_list, query)
+      # processed_query = cluster.processCluster(response_list, query)
 
       return prediction.predict(processed_query, path)
 
