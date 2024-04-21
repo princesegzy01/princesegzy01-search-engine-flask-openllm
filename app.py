@@ -23,7 +23,7 @@ def predict():
     if(path == "0"):
       print(">>>>> fetchLLM")
 
-      response = prediction.predict(query, path)
+      response = prediction.predict(query, path, "No")
 
       # if response at path 0 return empty
       # use AI
@@ -36,7 +36,7 @@ def predict():
          
          # pass response from lamma2 in array of string
          processed_query = cluster.processCluster(response_list, query)
-         return prediction.predict(processed_query, path)
+         return prediction.predict(processed_query, path, "Yes")
 
       return response
 
@@ -44,7 +44,7 @@ def predict():
       # return jsonify({"data" : response, "processed_query" : processed_query, "timer" : timeit.default_timer() - start})
     else:
        print("direct prediction")
-       return prediction.predict(query, path)
+       return prediction.predict(query, path, "N/A")
        
 
 

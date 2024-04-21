@@ -25,7 +25,7 @@ trigger_word_list = {'Other', 'greater', 'cm', 'inches', 'diameter', 'measuring'
 
 model = SentenceTransformer("multi-qa-MiniLM-L6-cos-v1")
 
-def predict(query, path):
+def predict(query, path, assisted="No"):
 
     tree = ""
     if(path == "0"):
@@ -55,6 +55,7 @@ def predict(query, path):
                     "score" : "0.0"
                 },
                 "type" : 'response',
+                "assisted" : assisted,
                 "path" : path,
                 "timer" : timeit.default_timer() - start
                 }
@@ -124,6 +125,7 @@ def predict(query, path):
                 "data" : _response_data,
                 "type" : 'request',
                 "path" : path,
+                "assisted" : assisted,
                 "timer" : timeit.default_timer() - start
             }
 
@@ -154,7 +156,7 @@ def predict(query, path):
         print("Description : " + tree[current_data['index']]['description'])
         print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.")
         # predict(query, tree[current_data['index']]['children'], new_path)
-        return predict(query, new_path)
+        return predict(query, new_path, assisted)
     else:
         print("###############################################")
         print("path :" + new_path)
@@ -172,6 +174,7 @@ def predict(query, path):
                     "score" : str(current_data['score'])
                 },
                 "type" : 'response',
+                "assisted" : assisted,
                 "path" : new_path,
                 "timer" : timeit.default_timer() - start
             }
