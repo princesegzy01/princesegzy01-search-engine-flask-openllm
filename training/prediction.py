@@ -87,6 +87,22 @@ def predict(query, path):
 
     # if no match was found, return all children
     if(len(reduced_result_sorted) == 0):
+        
+        # if path is 0
+        # return empty response
+        if(path == "0"):
+            response_data = {
+                'q' : query,
+                "data" : [],
+                "type" : 'empty_base',
+                "path" : path,
+                "timer" : timeit.default_timer() - start
+            }
+
+            return response_data
+
+
+        # else print the element of the current node
         print("list is empty")
         watch_list_token = []
         [watch_list_token.extend(t['description'].split(" ")) for t in tree]

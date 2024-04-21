@@ -23,14 +23,22 @@ def predict():
     if(path == "0"):
       print(">>>>> fetchLLM")
 
-    #    response = llm.fetchLLM(original_query)
-      # response = ollama.fetchLLM(query)
+      response = prediction.predict(query, path)
 
-      # response_list = [k for k, v in response.items()]
-      # pass response from lamma2 in array of string
-      # processed_query = cluster.processCluster(response_list, query)
+      # if response at path 0 return empty
+      # use AI
+      if(response['type'] == "empty_base"):
+         # use AI
+         response = llm.fetchLLM(original_query)
+         response = ollama.fetchLLM(query)
 
-      return prediction.predict(query, path)
+         response_list = [k for k, v in response.items()]
+         
+         # pass response from lamma2 in array of string
+         processed_query = cluster.processCluster(response_list, query)
+         return prediction.predict(processed_query, path)
+
+      return response
 
       # start = timeit.default_timer()
       # return jsonify({"data" : response, "processed_query" : processed_query, "timer" : timeit.default_timer() - start})
