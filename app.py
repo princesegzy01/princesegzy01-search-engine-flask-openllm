@@ -21,7 +21,6 @@ def predict():
     path = content['path']
     
     if(path == "0"):
-      print(">>>>> fetchLLM")
 
       response = prediction.predict(query, path, "No")
       print("01 >>>>>>>>>>>>>>>>>")
@@ -31,7 +30,8 @@ def predict():
       # use AI
       if(response['type'] == "empty_base"):
          # use AI
-         # response = llm.fetchLLM(original_query)
+         print(">>>>> fetchLLM")
+
          response = ollama.fetchLLM(query)
          print("02 >>>>>>>>>>>>>>>>>")
          print(response)
