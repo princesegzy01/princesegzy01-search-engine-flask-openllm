@@ -24,6 +24,8 @@ def predict():
       print(">>>>> fetchLLM")
 
       response = prediction.predict(query, path, "No")
+      print("01 >>>>>>>>>>>>>>>>>")
+      print(response)
 
       # if response at path 0 return empty
       # use AI
@@ -31,6 +33,8 @@ def predict():
          # use AI
          # response = llm.fetchLLM(original_query)
          response = ollama.fetchLLM(query)
+         print("02 >>>>>>>>>>>>>>>>>")
+         print(response)
 
          response_list = [k for k, v in response.items()]
          

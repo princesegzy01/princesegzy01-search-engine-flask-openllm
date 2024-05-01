@@ -38,6 +38,7 @@ def preprocessText(text):
 
 def fetchLLM(query):
 
+#  "prompt": "describe " + query  + " in english language", 
     data = { 
        "model": "llama2", 
         "prompt": "describe " + query  + " in english language", 
@@ -65,5 +66,8 @@ def fetchLLM(query):
     word_list.extend(tokens)
 
     disticnt = set(word_list)
+
+    print(" 001 >>>>>>>>>>>.")
+    print(disticnt)
     return Counter(list(disticnt))
     
