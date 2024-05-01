@@ -151,16 +151,16 @@ def processCluster(ws, query):
     pca_vecs.shape
     # (12, 3)
 
-    fig = plt.figure(figsize=(6, 6))
-    ax = fig.add_subplot(111, projection='3d')
-    xs, ys, zs = pca_vecs[:, 0], pca_vecs[:, 1], pca_vecs[:, 2]
-    _ = ax.scatter(xs, ys, zs)
+    # fig = plt.figure(figsize=(6, 6))
+    # ax = fig.add_subplot(111, projection='3d')
+    # xs, ys, zs = pca_vecs[:, 0], pca_vecs[:, 1], pca_vecs[:, 2]
+    # _ = ax.scatter(xs, ys, zs)
 
-    for x, y, z, lable in zip(xs, ys, zs, tokens):
-        ax.text(x+0.3, y, z, str(lable))
+    # for x, y, z, lable in zip(xs, ys, zs, tokens):
+    #     ax.text(x+0.3, y, z, str(lable))
     
 
-    plt.show()
+    # plt.show()
 
 
     # model = DBSCAN(eps=0.002, min_samples=1)
